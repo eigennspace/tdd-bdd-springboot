@@ -1,4 +1,4 @@
-package com.example.demo.cucumber.glue;
+package com.example.demo.cucumber_junit_5.glue;
 
 import com.example.demo.model.Meme;
 import com.example.demo.repository.MemeRepository;
@@ -8,9 +8,7 @@ import io.cucumber.java.Before;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import org.junit.jupiter.api.Assertions;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.web.client.TestRestTemplate;
 import org.springframework.test.web.servlet.MockMvc;
 
 import java.util.ArrayList;
@@ -19,9 +17,7 @@ import java.util.stream.IntStream;
 
 import static org.hamcrest.Matchers.greaterThan;
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
@@ -77,8 +73,6 @@ public class MemeSteps {
         IntStream.range(0, actualMemes.size())
                 .forEach(i -> {
                     validateMeme(expectedMemes.get(i), actualMemes.get(i));
-                    System.out.println(expectedMemes.get(i));
-                    System.out.println(actualMemes.get(i));
                 });
     }
 
